@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @RenderSection("styles", false)
+    @RenderSection("scripts", false)
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="~/scripts/html5shiv.js"></script>
+    <![endif]-->
+
+    <meta name="description" content="The description of my page" />
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>

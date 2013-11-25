@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{4B9E5793-C4F9-46AB-842C-EF6020DDD176}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{D0B02B0A-E37F-487F-BCA8-96A6F0D4305C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{34B47A5B-59D5-4109-854D-CCB5661840CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E6FBF988-61C1-43F6-A812-0523AF2231EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDO.UI.WebUI", "EDO.UI.WebUI\EDO.UI.WebUI.csproj", "{B3CD2DA4-0DC7-4E05-80D9-AC5130D5E134}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A9ED1936-F4DC-4BC6-8C74-D4F076E3D809}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDO.Model.Common", "EDO.Model.Common\EDO.Model.Common.csproj", "{FF30E6FF-3651-4B91-8B44-DC1389DD239A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDO.Model.Docs", "EDO.Model.Docs\EDO.Model.Docs.csproj", "{8D0911F1-C29D-424B-9515-55BC9BBBF8C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{5FEE496B-418A-460F-ACE3-A05FE99E5021}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDO.Data.MongoModelDocs", "EDO.Data.MongoModelDocs\EDO.Data.MongoModelDocs.csproj", "{E8B0971B-7E92-4EE5-9384-309016558FFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDO.Data.EFModelCommon", "EDO.Data.EFModelCommon\EDO.Data.EFModelCommon.csproj", "{17224248-3AA9-43C0-8C21-8C03D7C0D673}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3B338C3A-713B-4615-A154-FD25004E1B42}"
+	ProjectSection(SolutionItems) = preProject
+		..\extlib\SimpleMembershipModule.dll = ..\extlib\SimpleMembershipModule.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3CD2DA4-0DC7-4E05-80D9-AC5130D5E134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3CD2DA4-0DC7-4E05-80D9-AC5130D5E134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3CD2DA4-0DC7-4E05-80D9-AC5130D5E134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3CD2DA4-0DC7-4E05-80D9-AC5130D5E134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF30E6FF-3651-4B91-8B44-DC1389DD239A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF30E6FF-3651-4B91-8B44-DC1389DD239A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF30E6FF-3651-4B91-8B44-DC1389DD239A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF30E6FF-3651-4B91-8B44-DC1389DD239A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D0911F1-C29D-424B-9515-55BC9BBBF8C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0911F1-C29D-424B-9515-55BC9BBBF8C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0911F1-C29D-424B-9515-55BC9BBBF8C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0911F1-C29D-424B-9515-55BC9BBBF8C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8B0971B-7E92-4EE5-9384-309016558FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8B0971B-7E92-4EE5-9384-309016558FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8B0971B-7E92-4EE5-9384-309016558FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8B0971B-7E92-4EE5-9384-309016558FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17224248-3AA9-43C0-8C21-8C03D7C0D673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17224248-3AA9-43C0-8C21-8C03D7C0D673}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17224248-3AA9-43C0-8C21-8C03D7C0D673}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17224248-3AA9-43C0-8C21-8C03D7C0D673}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B3CD2DA4-0DC7-4E05-80D9-AC5130D5E134} = {4B9E5793-C4F9-46AB-842C-EF6020DDD176}
+		{FF30E6FF-3651-4B91-8B44-DC1389DD239A} = {D0B02B0A-E37F-487F-BCA8-96A6F0D4305C}
+		{8D0911F1-C29D-424B-9515-55BC9BBBF8C6} = {D0B02B0A-E37F-487F-BCA8-96A6F0D4305C}
+		{5FEE496B-418A-460F-ACE3-A05FE99E5021} = {34B47A5B-59D5-4109-854D-CCB5661840CE}
+		{E8B0971B-7E92-4EE5-9384-309016558FFE} = {5FEE496B-418A-460F-ACE3-A05FE99E5021}
+		{17224248-3AA9-43C0-8C21-8C03D7C0D673} = {5FEE496B-418A-460F-ACE3-A05FE99E5021}
+	EndGlobalSection
+EndGlobal

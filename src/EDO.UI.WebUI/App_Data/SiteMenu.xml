@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <items>
+    <item>
+      <text>Главная</text>
+      <controller>dashboard</controller>
+      <action>index</action>
+      <target>_self</target>
+      <roles>
+        <role>User</role>
+        <role>Administrator</role>
+      </roles>
+    </item>
+    <item>
+      <text>Документы</text>
+      <roles>
+        <role>Administrator</role>
+        <role>User</role>
+      </roles>
+      <items>
+        <item>
+          <text>Мои документы</text>
+          <controller>documents</controller>
+          <action>index</action>
+          <target>_self</target>
+          <roles>
+            <role>User</role>
+          </roles>
+        </item>
+        <item>
+          <text>Список документов</text>
+          <controller>documents</controller>
+          <action>allDocs</action>
+          <target>_self</target>
+          <roles>
+            <role>Administrator</role>
+          </roles>
+        </item>
+        <item>
+          <text>Новый документ</text>
+          <controller>documents</controller>
+          <action>create</action>
+          <target>_self</target>
+          <roles>
+            <role>Administrator</role>
+            <role>User</role>
+          </roles>
+        </item>
+      </items>
+    </item>
+  </items>
+</menu>

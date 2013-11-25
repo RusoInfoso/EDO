@@ -1,0 +1,122 @@
+﻿@model EDO.UI.WebUI.Models.Registration.IndividualInfo
+
+<div class="form-group">
+    <fieldset>
+        <legend class="input-sm">Платежные реквизиты для перечисления денежных средств в качестве обеспечения заявок</legend>
+        <div class="form-group">
+            @Html.Label("БИК", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Bik, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Лицевой счет", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.PersonalAccount, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Расчетный счет", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.SettlementAccount, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Корреспондентский счет", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.CorrespondentAccount, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Наименование банка / расчетной организации", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.BankName, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Адрес банка / расчетной организации", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.BankAddress, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend class="input-sm">Юридический адрес</legend>
+        <div class="form-group">
+            @Html.Label("Код ОКАТО", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Okato, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Страна", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Country, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Почтовый индекс", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Zip, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Район", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.State, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Город", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.City, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Населенный пункт", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Punkt, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Улица", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Street, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Дом (корпус, строение)", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Building, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Квартира (офис)", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Office, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend class="input-sm">Почтовый адрес</legend>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(x => x.IsAddressesEqual)
+                        Совпадает с Юридическим адресом
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Почтовый адрес", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-8">
+                @Html.TextAreaFor(x => x.RealAddress, new { @class = "form-control", placeholder = "" })
+            </div>
+        </div>
+    </fieldset>
+</div>
+

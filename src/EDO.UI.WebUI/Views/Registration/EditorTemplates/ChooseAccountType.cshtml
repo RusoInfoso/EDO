@@ -1,0 +1,12 @@
+﻿@model EDO.UI.WebUI.Models.Registration.ChooseAccountType
+
+
+@foreach (var aType in Model.AccountTypesList)
+{
+    <div class="radio">
+        <label>
+            @Html.RadioButtonFor(x => x.AccountTypeCode, aType.Code)
+            @aType.Title
+        </label>
+    </div>
+}
