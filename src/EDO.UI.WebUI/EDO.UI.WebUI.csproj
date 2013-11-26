@@ -45,6 +45,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\..\lib\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -4745,6 +4751,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CoreApiController.cs" />
+    <Compile Include="Controllers\Api\ErrorController.cs" />
     <Compile Include="Controllers\Api\SiteMenuController.cs" />
     <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />

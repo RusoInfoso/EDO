@@ -5,6 +5,21 @@
     <title>@ViewBag.Title</title>
 
     @RenderSection("styles", false)
+
+    @{/* Потом посмотреть, может быть сделать кроссбраузерное решение */}
+    <script type="text/javascript">
+        window.onerror = function (errorText, url, lineNumber) {
+            var msg = 'errorText=' + errorText + '&url='
+                + url + '&lineNumber=' + lineNumber;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/api/error', true);
+            xhr.setRequestHeader("Content-type",
+                "application/x-www-form-urlencoded");
+            xhr.send(msg);
+        };
+    </script>
+
     @RenderSection("scripts", false)
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
