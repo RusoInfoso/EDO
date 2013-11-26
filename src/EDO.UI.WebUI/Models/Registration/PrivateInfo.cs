@@ -1,7 +1,7 @@
 ﻿
 namespace EDO.UI.WebUI.Models.Registration
 {
-    public class PrivateInfo : IPrivateRegStep
+    public class PrivateInfo : IPrivateRegStep, IRegistrationInfo
     {
         public string Bik { get; set; }
         public string PersonalAccount { get; set; }

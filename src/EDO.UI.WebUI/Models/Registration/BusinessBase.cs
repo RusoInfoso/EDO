@@ -7,7 +7,7 @@ using System.Web;
 namespace EDO.UI.WebUI.Models.Registration
 {
     [Serializable]
-    public class BusinessBase : IBusinessRegStep
+    public class BusinessBase : IBusinessRegStep, IRegistrationBase
     {
         /**
          * Основные данные компании

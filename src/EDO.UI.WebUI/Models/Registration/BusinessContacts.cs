@@ -5,7 +5,7 @@ using System.Web;
 
 namespace EDO.UI.WebUI.Models.Registration
 {
-    public class BusinessContacts : IBusinessRegStep
+    public class BusinessContacts : IBusinessRegStep, IUserIdentity
     {
         // Руководитель
         public string Position { get; set; }        

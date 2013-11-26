@@ -4770,21 +4770,20 @@
     <Compile Include="Models\RegistrationViewModel.cs" />
     <Compile Include="Models\Registration\BusinessBase.cs" />
     <Compile Include="Models\Registration\BusinessContacts.cs" />
-    <Compile Include="Models\Registration\PrivateFiles.cs" />
-    <Compile Include="Models\Registration\IndividualFiles.cs" />
-    <Compile Include="Models\Registration\BusinessFiles.cs" />
     <Compile Include="Models\Registration\BusinessInfo.cs" />
     <Compile Include="Models\Registration\ChooseAccountType.cs" />
     <Compile Include="Models\Registration\IndividualBase.cs" />
+    <Compile Include="Models\Registration\Interfaces\IRegistrationBase.cs" />
+    <Compile Include="Models\Registration\Interfaces\IRegistrationInfo.cs" />
+    <Compile Include="Models\Registration\Interfaces\IUserIdentity.cs" />
     <Compile Include="Models\Registration\PrivateIdentity.cs" />
     <Compile Include="Models\Registration\IndividualIdentity.cs" />
     <Compile Include="Models\Registration\PrivateInfo.cs" />
     <Compile Include="Models\Registration\IndividualInfo.cs" />
-    <Compile Include="Models\Registration\IRegistrationStepVM.cs" />
+    <Compile Include="Models\Registration\Interfaces\IRegistrationStepVM.cs" />
     <Compile Include="Models\Registration\PrivateBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\MembershipUtils.cs" />
-    <Compile Include="Utils\ProcessRegister.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

@@ -1,4 +1,6 @@
-﻿using EDO.UI.WebUI.Models.Registration;
+﻿using EDO.Model.Common.Abstract;
+using EDO.Model.Common.Entities;
+using EDO.UI.WebUI.Models.Registration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,8 @@ namespace EDO.UI.WebUI.Models
     [Serializable]
     public class RegistrationViewModel
     {
+        const int CHAIN_LENGTH = 4;
+
         public int CurrentStepIndex { get; set; }
         public IList<IRegistrationStepVM> Steps { get; set; }
         public IList<string> StepTitles { get; set; }
@@ -21,6 +25,20 @@ namespace EDO.UI.WebUI.Models
 
             TruncateToFirstStep();
         }
+
+        public IUserIdentity GetUserIdentity()
+        {
+            var identity = Steps.Where(s => s is IUserIdentity).FirstOrDefault() as IUserIdentity;
+
+            if(identity == null)
+            {
+                throw new Exception("Не заполнены идентификационные данные");
+            }
+
+            return identity;
+        }
+
+
 
         public IRegistrationStepVM GetNextStep()
         {
@@ -119,8 +137,6 @@ namespace EDO.UI.WebUI.Models
                 TruncateToFirstStep();
             }
             
-            var stepTitle = "";
-
             var firstStep = GetFirstStep() as ChooseAccountType;
 
             if (firstStep != null)
@@ -135,8 +151,6 @@ namespace EDO.UI.WebUI.Models
                             StepTitles.Add("Реквизиты и адреса");
                             Steps.Add(new IndividualIdentity());
                             StepTitles.Add("Идентификационные данные");
-                            Steps.Add(new IndividualFiles());
-                            StepTitles.Add("Файлы");
                         }
                         break;
                     case "business":
@@ -147,8 +161,6 @@ namespace EDO.UI.WebUI.Models
                             StepTitles.Add("Реквизиты и адреса");
                             Steps.Add(new BusinessContacts());
                             StepTitles.Add("Контакты");
-                            Steps.Add(new BusinessFiles());
-                            StepTitles.Add("Файлы");
                         }
                         break;
                     case "private":
@@ -159,8 +171,6 @@ namespace EDO.UI.WebUI.Models
                             StepTitles.Add("Реквизиты и адреса");
                             Steps.Add(new PrivateIdentity());
                             StepTitles.Add("Идентификационные данные");
-                            Steps.Add(new PrivateFiles());
-                            StepTitles.Add("Файлы");
                         }
                         break;
                 }

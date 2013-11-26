@@ -5,7 +5,7 @@ using System.Web;
 
 namespace EDO.UI.WebUI.Models.Registration
 {
-    public class IndividualIdentity : IIndividualRegStep
+    public class IndividualIdentity : IIndividualRegStep, IUserIdentity
     {
         // Идентификационные данные
         public string UserName { get; set; }

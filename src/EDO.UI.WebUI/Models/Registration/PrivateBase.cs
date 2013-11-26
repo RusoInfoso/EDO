@@ -3,7 +3,7 @@
 namespace EDO.UI.WebUI.Models.Registration
 {
     [Serializable]
-    public class PrivateBase : IPrivateRegStep
+    public class PrivateBase : IPrivateRegStep, IRegistrationBase
     {
         /**
          * Основные данные компании

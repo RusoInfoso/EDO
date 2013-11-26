@@ -1,7 +1,7 @@
 ﻿
 namespace EDO.UI.WebUI.Models.Registration
 {
-    public class PrivateIdentity : IPrivateRegStep
+    public class PrivateIdentity : IPrivateRegStep, IUserIdentity
     {
         // Идентификационные данные
         public string UserName { get; set; }
