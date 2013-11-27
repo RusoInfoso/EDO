@@ -2,40 +2,62 @@
 
 @{
     ViewBag.Title = "Выполнить вход";
+    Layout = "~/Views/Shared/_LayoutTwitter.cshtml";
 }
 
-<hgroup>
-    <h1>@ViewBag.Title.</h1>
-</hgroup>
-
 <section id="loginForm">
-<h2>Используйте для входа локальную учетную запись.</h2>
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Форма входа</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </li>
-            <li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-            </li>
-        </ol>
-        <input type="submit" value="Выполнить вход" />
-    </fieldset>
-    <p>
-        @Html.ActionLink("Зарегистрируйтесь", "Index", "Registration"), если у вас нет учетной записи.
-    </p>
-}
+    <div>
+        @Html.ValidationSummary()
+    </div>
+
+    <div class=" col-sm-offset-3 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Используйте для входа локальную учетную запись</div>
+            <div class="panel-body">
+                <div class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>
+                        @Html.ActionLink("Зарегистрируйтесь", "Register", "Account")
+                    </strong>, если у вас нет учетной записи.                    
+                </div>
+                <fieldset>
+                    <div class="form-group">
+                        @Html.Label("Логин", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Пароль", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <div class="checkbox">
+                                <label>
+                                    @Html.CheckBoxFor(x => x.RememberMe)
+                                    Запомнить меня
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="submit" value="Выполнить вход" name="Выполнить вход" class="btn btn-success pull-right" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+}   
 </section>

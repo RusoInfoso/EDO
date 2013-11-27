@@ -14,7 +14,6 @@ namespace EDO.Model.Common.Abstract
         IGenericRepository<Business> Businesses { get; }
         IGenericRepository<Office> Offices { get; }
         IGenericRepository<Address> Addresses { get; }
-        IGenericRepository<UserPosition> UserPositions { get; }
         IGenericRepository<AccountType> AccountTypes { get; }
 
         void SaveChanges();

@@ -8,8 +8,6 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 using EDO.UI.WebUI.Models;
-using EDO.UI.WebUI.Models.Binders;
-using EDO.UI.WebUI.Models.Registration;
 using System.Web.Optimization;
 
 namespace EDO.UI.WebUI
@@ -24,8 +22,6 @@ namespace EDO.UI.WebUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);     
        
             Bootstrapper.Initialise();
-
-            ModelBinders.Binders.Add(typeof(IRegistrationStepVM), new RegStepViewModelBinder());
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 

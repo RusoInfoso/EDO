@@ -18,7 +18,6 @@ namespace EDO.Data.EFModelCommon
         private IGenericRepository<Business>        _businesses = null;
         private IGenericRepository<Office>          _offices = null;
         private IGenericRepository<Address>         _addresses = null;
-        private IGenericRepository<UserPosition>    _positions = null;
         private IGenericRepository<AccountType>     _atypes = null;
 
 
@@ -71,19 +70,6 @@ namespace EDO.Data.EFModelCommon
                 }
 
                 return _addresses;
-            }
-        }
-
-        public IGenericRepository<UserPosition> UserPositions
-        {
-            get
-            {
-                if (_positions == null)
-                {
-                    _positions = new EFGenericRepository<UserPosition>(_context);
-                }
-
-                return _positions;
             }
         }
 

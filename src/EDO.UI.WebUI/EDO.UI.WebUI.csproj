@@ -4756,32 +4756,15 @@
     <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Filters\ValidationActionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Binders\RegStepViewModelBinder.cs" />
     <Compile Include="Models\JSON\Core\BusinessInfo.cs" />
     <Compile Include="Models\JSON\Core\OfficeInfo.cs" />
     <Compile Include="Models\JSON\Core\UserInfo.cs" />
     <Compile Include="Models\MenuModels.cs" />
-    <Compile Include="Models\RegistrationViewModel.cs" />
-    <Compile Include="Models\Registration\BusinessBase.cs" />
-    <Compile Include="Models\Registration\BusinessContacts.cs" />
-    <Compile Include="Models\Registration\BusinessInfo.cs" />
-    <Compile Include="Models\Registration\ChooseAccountType.cs" />
-    <Compile Include="Models\Registration\IndividualBase.cs" />
-    <Compile Include="Models\Registration\Interfaces\IRegistrationBase.cs" />
-    <Compile Include="Models\Registration\Interfaces\IRegistrationInfo.cs" />
-    <Compile Include="Models\Registration\Interfaces\IUserIdentity.cs" />
-    <Compile Include="Models\Registration\PrivateIdentity.cs" />
-    <Compile Include="Models\Registration\IndividualIdentity.cs" />
-    <Compile Include="Models\Registration\PrivateInfo.cs" />
-    <Compile Include="Models\Registration\IndividualInfo.cs" />
-    <Compile Include="Models\Registration\Interfaces\IRegistrationStepVM.cs" />
-    <Compile Include="Models\Registration\PrivateBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\MembershipUtils.cs" />
   </ItemGroup>
@@ -5258,25 +5241,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Error\AccessDenied.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Registration\Index.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\ChooseAccountType.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\IndividualBase.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\BusinessBase.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\PrivateBase.cshtml" />
     <Content Include="Views\Shared\_LayoutTwitter.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\BusinessInfo.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\BusinessContacts.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\BusinessFiles.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\IndividualInfo.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\IndividualIdentity.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\IndividualFiles.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\PrivateInfo.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\PrivateIdentity.cshtml" />
-    <Content Include="Views\Registration\EditorTemplates\PrivateFiles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

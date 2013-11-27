@@ -1,33 +1,158 @@
 ﻿@model EDO.UI.WebUI.Models.RegisterModel
 @{
     ViewBag.Title = "Регистрация";
+    Layout = "~/Views/Shared/_LayoutTwitter.cshtml";
 }
 
-<hgroup>
-    <h1>@ViewBag.Title.</h1>
-    <h2>Создание новой учетной записи.</h2>
-</hgroup>
-
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Register", "Account", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Форма регистрации</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword)
-            </li>
-        </ol>
-        <input type="submit" value="Регистрация" />
-    </fieldset>
+    <div>
+        @Html.ValidationSummary()
+    </div>
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>
+            @Html.ActionLink("Войдите", "Login", "Account")
+        </strong>, если у вас уже есть учетная запись.
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Регистрация нового участника</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <fieldset>
+                    <legend class="input-sm">Выбор типа аккаунта</legend>
+                    
+                    @foreach (var aType in Model.AccountTypesList)
+                    {
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <div class="radio">
+                                    <label>
+                                        @Html.RadioButtonFor(x => x.AccountTypeCode, aType.Code, new { @class = "acc_type_radio"})
+                                        @aType.Title
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </fieldset>
+                <fieldset>
+                    <legend class="input-sm">Идентификационные данные</legend>
+                    <div class="form-group">
+                        @Html.Label("Имя пользователя", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Пароль", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Подтверждение пароля", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Кодовая фраза", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.PassPhrase, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend class="input-sm">Данные пользователя</legend>
+                    <div class="form-group">
+                        @Html.Label("Фамилия", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Имя", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Отчество", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Телефон", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Телефон моб", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.MobilePhone, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("E-Mail", new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>&nbsp;</legend>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <div class="checkbox">
+                                <label>
+                                    @Html.CheckBoxFor(x => x.IsAccreditationStatement, new { @class = "reglament_cb" })
+                                    Заявление на аккредитацию
+                                    <span class="help-block">
+                                        ознакомиться можно <a href="~/Content/docs/etp-reglament.pdf" target="_blank">здесь</a>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <div class="checkbox">
+                                <label>
+                                    @Html.CheckBoxFor(x => x.IsInvoiceStatement)
+                                    Открыть персональный счет для проведения операций на площадке
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-12">  
+            <input type="submit" value="Finish" name="Зарегистрироваться" class="btn btn-success pull-right" disabled="disabled" id="formSbmBtn" />
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $(".reglament_cb").click(function () {
+                if (this.checked) {
+                    $("#formSbmBtn").removeAttr("disabled");
+                } else {
+                    $("#formSbmBtn").attr("disabled", "disabled");
+                }
+            });
+        });
+    </script>    
 }

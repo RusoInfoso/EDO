@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    
+
     @Styles.Render("~/Content/css")
     @RenderSection("styles", required: false)
 
@@ -24,22 +24,20 @@
 
 </head>
 <body>
-    <div class="row">
-        <div class="col-lg-1">&nbsp;</div>
-        <div class="col-lg-10">
-            <div class="page-header">
-                <h1>Mega Documents<small>...i'm a genius</small></h1>
-            </div>
-            <div class="row">
-                <div class="col-lg-1">&nbsp;</div>
-                <div class="col-lg-10">
-                    @RenderBody()
-                </div>
-                <div class="col-lg-1">&nbsp;</div>
-            </div>
+    <div class="col-lg-1">&nbsp;</div>
+    <div class="col-lg-10">
+        <div class="page-header">
+            <h1>Mega Documents<small>...i'm a genius</small></h1>
         </div>
-        <div class="col-lg-1">&nbsp;</div>
+        <div class="row">
+            <div class="col-lg-1">&nbsp;</div>
+            <div class="col-lg-10">
+                @RenderBody()
+            </div>
+            <div class="col-lg-1">&nbsp;</div>
+        </div>
     </div>
+    <div class="col-lg-1">&nbsp;</div>
 
     @Scripts.Render("~/bundles/site")
     @Scripts.Render("~/bundles/jqueryval")

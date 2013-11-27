@@ -22,7 +22,6 @@ namespace EDO.Data.EFModelCommon
         public DbSet<Business> Businesses { get; set; }
         public DbSet<Office> Offices { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        public DbSet<UserPosition> UserPositions { get; set; }
 
         public DbSet<AccountType> AccountTypes { get; set; }
         /** --- **/

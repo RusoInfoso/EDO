@@ -3,6 +3,13 @@ using System.Web.Security;
 using EDO.UI.WebUI.Models;
 using SimpleMembershipModule;
 using WebMatrix.WebData;
+using EDO.Model.Common.Abstract;
+using EDO.Model.Common.Entities;
+using System.Collections.Generic;
+using System.Linq;
+using EDO.UI.WebUI.Utils;
+using System;
+
 
 namespace EDO.UI.WebUI.Controllers
 {
@@ -10,9 +17,15 @@ namespace EDO.UI.WebUI.Controllers
     [SimpleMembershipInitializeDb]
     public class AccountController : Controller
     {
+        private IApplicationUnit _uow;
+
+        public AccountController(IApplicationUnit uow)
+        {
+            _uow = uow;
+        }
+
         //
         // GET: /Account/Login
-
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -22,7 +35,6 @@ namespace EDO.UI.WebUI.Controllers
 
         //
         // POST: /Account/Login
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -40,7 +52,6 @@ namespace EDO.UI.WebUI.Controllers
 
         //
         // POST: /Account/LogOff
-
         [HttpPost]
         public ActionResult LogOff()
         {
@@ -55,7 +66,13 @@ namespace EDO.UI.WebUI.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            RegisterModel vm = new RegisterModel();
+            List<AccountType> types = _uow.AccountTypes.GetAll().ToList();
+
+
+            vm.AccountTypesList = types;
+
+            return View(vm);
         }
 
         //
@@ -71,8 +88,36 @@ namespace EDO.UI.WebUI.Controllers
                 // Попытка зарегистрировать пользователя
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
+                    // Регаем пользователя
+                    int userId = MembershipUtils.CreateUser(model.UserName, model.Password, "User");
+
+                    // Тип аккаунта
+                    AccountType aType = _uow.AccountTypes.GetAll().FirstOrDefault(t => t.Code == model.AccountTypeCode);
+
+                    if(aType == null)
+                    {
+                        throw new Exception("Неверный тип пользователя");
+                    }
+
+                    // Заполняем профиль
+                    UserProfile user = _uow.UserProfiles.GetById(userId);
+
+                    user.FirstName = model.FirstName;
+                    user.Surname = model.Surname;
+                    user.LastName = model.LastName;
+                    user.Phone = model.Phone;
+                    user.MobilePhone = model.MobilePhone;
+                    user.Email = model.Email;
+                    user.PassPhrase = model.PassPhrase;
+
+                    user.AccountType = aType;
+
+                    user.IsMainAccount = true;
+
+                    _uow.SaveChanges();
+
+                    // Авторизуемся
+                    MembershipUtils.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)

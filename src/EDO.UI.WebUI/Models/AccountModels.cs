@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EDO.Model.Common.Entities;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace EDO.UI.WebUI.Models
 {
@@ -36,11 +38,16 @@ namespace EDO.UI.WebUI.Models
         public bool RememberMe { get; set; }
     }
 
+
     public class RegisterModel
     {
+        [Required]
+        public string AccountTypeCode { get; set; }
+
+        public List<AccountType> AccountTypesList { get; set; }
 
         [Required]
-        [Display(Name = "Имя пользователя")]
+        [Display(Name = "Логин")]
         public string UserName { get; set; }
 
         [Required]
@@ -53,5 +60,34 @@ namespace EDO.UI.WebUI.Models
         [Display(Name = "Подтверждение пароля")]
         [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string FirstName { get; set; }
+
+        public string Surname { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        [Required]
+        public string Phone { get; set; }
+
+        public string MobilePhone { get; set; }
+
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public string PassPhrase { get; set; }
+
+        // Заявление на аккредитацию
+        public bool IsAccreditationStatement { get; set; }
+        // Заявление на открытие счета
+        public bool IsInvoiceStatement { get; set; }
+
+        public RegisterModel()
+        {
+            AccountTypesList = new List<AccountType>();
+        }
     }
 }

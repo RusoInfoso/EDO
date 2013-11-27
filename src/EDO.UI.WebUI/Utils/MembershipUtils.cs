@@ -25,7 +25,7 @@ namespace EDO.UI.WebUI.Utils
 
             var user = _membership.GetUser(login, false);
 
-            if(user != null)
+            if(user == null)
             {
                 _membership.CreateUserAndAccount(login, password);
 
@@ -42,6 +42,11 @@ namespace EDO.UI.WebUI.Utils
             }
 
             return GetUserIdByName(login);
+        }
+
+        public static void Login(string login, string password)
+        {
+            WebSecurity.Login(login, password);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace EDO.Data.EFModelCommon.Migrations
 
             types.Add(new AccountType
             {
-                Title = "Индивидуальный предпрениматель",
+                Title = "Индивидуальный предприниматель",
                 Description = "Индивидуальный предприниматель",
                 Code = "individual"
             });

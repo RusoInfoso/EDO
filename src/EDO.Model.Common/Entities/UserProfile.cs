@@ -15,16 +15,19 @@ namespace EDO.Model.Common.Entities
         public string Email { get; set; }
         public string PassPhrase { get; set; }
 
+        public string Position { get; set; }
+        public bool IsMainAccount { get; set; }
+
+
         public virtual Business Business { get; set; }
         public virtual Office Office { get; set; }
-        public virtual UserPosition Position { get; set; }
         public virtual AccountType AccountType { get; set; }
+
 
         public UserProfile()
         {
             Business = new Business();
             Office = new Office();
-            Position = new UserPosition();
             AccountType = new AccountType();
         }
     }

@@ -56,6 +56,14 @@
     <Compile Include="Migrations\201311220558052_InitialMigration.Designer.cs">
       <DependentUpon>201311220558052_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311271155365_AddMainAccountFlagMigration.cs" />
+    <Compile Include="Migrations\201311271155365_AddMainAccountFlagMigration.Designer.cs">
+      <DependentUpon>201311271155365_AddMainAccountFlagMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311271214287_RemoveUsersPositionAsUnnecessaryMigration.cs" />
+    <Compile Include="Migrations\201311271214287_RemoveUsersPositionAsUnnecessaryMigration.Designer.cs">
+      <DependentUpon>201311271214287_RemoveUsersPositionAsUnnecessaryMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\EFUserProfilesRepository.cs" />
@@ -74,6 +82,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201311220558052_InitialMigration.resx">
       <DependentUpon>201311220558052_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311271155365_AddMainAccountFlagMigration.resx">
+      <DependentUpon>201311271155365_AddMainAccountFlagMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311271214287_RemoveUsersPositionAsUnnecessaryMigration.resx">
+      <DependentUpon>201311271214287_RemoveUsersPositionAsUnnecessaryMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
