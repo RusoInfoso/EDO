@@ -180,12 +180,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="scripts\app.js" />
+    <Content Include="scripts\app\controller\Admin.js" />
     <Content Include="scripts\app\controller\Base.js" />
     <Content Include="scripts\app\controller\Dashboard.js" />
     <Content Include="scripts\app\controller\Documents.js" />
     <Content Include="scripts\app\controller\User.js" />
     <Content Include="scripts\app\model\MenuItem.js" />
     <Content Include="scripts\app\store\MenuItems.js" />
+    <Content Include="scripts\app\view\admin\Index.js" />
+    <Content Include="scripts\app\view\admin\RolesAndUsers.js" />
     <Content Include="scripts\app\view\documents\AllDocs.js" />
     <Content Include="scripts\app\view\documents\Index.js" />
     <Content Include="scripts\app\view\documents\Create.js" />

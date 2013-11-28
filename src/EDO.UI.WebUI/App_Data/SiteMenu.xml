@@ -48,5 +48,31 @@
         </item>
       </items>
     </item>
+    <item>
+      <text>Администрирование</text>
+      <roles>
+        <role>Administrator</role>
+      </roles>
+      <items>
+        <item>
+          <text>Общее</text>
+          <controller>admin</controller>
+          <action>index</action>
+          <target>_self</target>
+          <roles>
+            <role>Administrator</role>
+          </roles>
+        </item>
+        <item>
+          <text>Роли и пользователи</text>
+          <controller>admin</controller>
+          <action>rolesAndUsers</action>
+          <target>_self</target>
+          <roles>
+            <role>Administrator</role>
+          </roles>
+        </item>
+      </items>
+    </item>
   </items>
 </menu>

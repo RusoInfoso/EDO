@@ -27,6 +27,20 @@ namespace EDO.UI.WebUI
                         "~/Scripts/jquery/jquery.unobtrusive*",
                         "~/Scripts/jquery/jquery.validate*"));
 
+
+            // For ExtJS
+            bundles.Add(new ScriptBundle("~/bundles/sencha").Include(
+                        "~/scripts/extjs421/ext-all-dev.js"
+                        , "~/scripts/config/environment.js"
+                        , "~/scripts/config/development.js"
+                        , "~/scripts/config/router.js"
+                        , "~/scripts/app.js"
+                        ));
+
+            bundles.Add(new StyleBundle("~/bundles/senchacss").Include(
+                "~/scripts/extjs421/resources/css/ext-all.css",
+                "~/Content/style.css"
+                ));
         }
     }
 }

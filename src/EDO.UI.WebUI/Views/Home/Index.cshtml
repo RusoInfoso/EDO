@@ -41,9 +41,8 @@
             font-weight: normal;
         }
     </style>
-    <!-- Ext JS -->
-    <link href="~/scripts/extjs421/resources/css/ext-all.css" rel="stylesheet" />
-    <link href="~/Content/style.css" rel="stylesheet" />
+    
+    @Styles.Render("~/bundles/senchacss")
 }
 <div id="loading-mask" style=""></div>
 <div id="loading">
@@ -61,12 +60,5 @@
 </form>
 @section scripts
 {
-    <!-- Ext JS -->
-    <script src="~/scripts/extjs421/bootstrap.js"></script>
-
-    <!-- Application -->
-    <script src="~/scripts/config/environment.js"></script>
-    <script src="~/scripts/config/development.js"></script>
-    <script src="~/scripts/config/router.js"></script>
-    <script src="~/scripts/app.js"></script>
+    @Scripts.Render("~/bundles/sencha")
 }
