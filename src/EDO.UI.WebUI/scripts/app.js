@@ -4,7 +4,7 @@ Ext.ns('Core.User');
 Core.startApplication = function () {
     App = Ext.create('Ext.ux.app.RoutedApplication', {
         name: 'EDO',
-        appFolder: 'scripts/app',
+        appFolder: '/scripts/app',
 
         requires: [
             'EDO.view.Viewport'
