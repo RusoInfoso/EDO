@@ -17,7 +17,7 @@ namespace EDO.UI.WebUI.Controllers.Api
     [ApiRoledAuthorize]
     public class CoreApiController : ApiController
     {
-        private IApplicationUnit _uow;
+        private readonly IApplicationUnit _uow;
 
         public CoreApiController(IApplicationUnit appUnit)
         {
