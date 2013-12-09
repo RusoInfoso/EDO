@@ -80,7 +80,9 @@ Core.startApplication = function () {
 
 Ext.onReady(function () {
     Ext.require([
-    'Ext.ux.app.RoutedApplication'
+        'Ext.ux.app.RoutedApplication',
+        'Ext.data.*',
+        'Ext.grid.*'
     ],
     function () {
         Ext.Ajax.request({

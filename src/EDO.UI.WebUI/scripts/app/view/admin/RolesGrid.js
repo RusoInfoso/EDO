@@ -4,43 +4,60 @@
     
     layout: 'fit',
     frame: false,
+
+    store: {},
     
-    initComponent: function() {
-        this.getSelectionModel().on('selectionchange', function (selModel, selections) {
-            grid.down('#deleteRole').setDisabled(selections.length === 0);
+    initComponent: function () {
+        var grid = this;
+        var store = Ext.create('EDO.store.RolesStore');        
+
+        var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
+            listeners: {
+                cancelEdit: function (rowEditing, context) {
+                    // Canceling editing of a locally added, unsaved record: remove it
+                    if (context.record.phantom) {
+                        store.remove(context.record);
+                    }
+                }
+            }
         });
         
-        this.callParent(arguments);
-    },
+        this.store = store;
 
-    columns: [{
-        text: 'ID',
-        width: 50,
-        sortable: true,
-        dataIndex: 'id'
-    }, {
-        text: 'Название роли',
-        flex: 1,
-        sortable: true,
-        dataIndex: 'title',
-        field: {
-            xtype: 'textfield'
-        }
-    }],
-    dockedItems: [{
-        xtype: 'toolbar',
-        items: [{
-            text: 'Add',
-            iconCls: 'icon-add',
-            handler: function () {
+        this.columns = [{
+            text: 'Название роли',
+            flex: 1,
+            sortable: true,
+            dataIndex: 'name',
+            field: {
+                xtype: 'textfield'
             }
-        }, '-', {
-            itemId: 'deleteRole',
-            text: 'Delete',
-            iconCls: 'icon-delete',
-            disabled: true,
-            handler: function () {
-            }
-        }]
-    }]
+        }];
+
+        this.dockedItems = [{
+            xtype: 'toolbar',
+            items: [{
+                text: 'Add',
+                iconCls: 'icon-add',
+                handler: function () {
+                    store.insert(0, new EDO.model.Role());
+                    rowEditing.startEdit(0, 0);
+                }
+            }, '-', {
+                itemId: 'deleteRole',
+                text: 'Delete',
+                iconCls: 'icon-delete',
+                disabled: true,
+                handler: function () {
+                }
+            }]
+        }];       
+
+
+        grid.getSelectionModel().on('selectionchange', function (selModel, selections) {
+            grid.down('#deleteRole').setDisabled(selections.length === 0);
+        });
+
+        this.callParent(arguments);
+    }
 });

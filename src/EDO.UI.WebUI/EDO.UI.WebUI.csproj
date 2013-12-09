@@ -200,7 +200,9 @@
     <Content Include="scripts\app\controller\Documents.js" />
     <Content Include="scripts\app\controller\User.js" />
     <Content Include="scripts\app\model\MenuItem.js" />
+    <Content Include="scripts\app\model\Role.js" />
     <Content Include="scripts\app\store\MenuItems.js" />
+    <Content Include="scripts\app\store\RolesStore.js" />
     <Content Include="scripts\app\view\admin\Index.js" />
     <Content Include="scripts\app\view\admin\RolesAndUsers.js" />
     <Content Include="scripts\app\view\admin\RolesGrid.js" />
@@ -4771,6 +4773,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CoreApiController.cs" />
     <Compile Include="Controllers\Api\ErrorController.cs" />
+    <Compile Include="Controllers\Api\RolesController.cs" />
     <Compile Include="Controllers\Api\SiteMenuController.cs" />
     <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -4780,6 +4783,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\JSON\Admin\RolesModel.cs" />
     <Compile Include="Models\JSON\Core\BusinessInfo.cs" />
     <Compile Include="Models\JSON\Core\OfficeInfo.cs" />
     <Compile Include="Models\JSON\Core\UserInfo.cs" />

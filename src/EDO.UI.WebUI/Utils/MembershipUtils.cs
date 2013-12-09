@@ -48,5 +48,10 @@ namespace EDO.UI.WebUI.Utils
         {
             WebSecurity.Login(login, password);
         }
+
+        public static string[] GetRolesList()
+        {
+            return _roles.GetAllRoles();
+        }
     }
 }

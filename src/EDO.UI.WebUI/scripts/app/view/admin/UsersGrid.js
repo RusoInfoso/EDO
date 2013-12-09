@@ -5,7 +5,8 @@
     layout: 'fit',
     frame: false,
 
-    initComponent: function () {
+    initComponent: function () {        
+
         this.getSelectionModel().on('selectionchange', function (selModel, selections) {
             grid.down('#deleteUser').setDisabled(selections.length === 0);
         });

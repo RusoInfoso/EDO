@@ -48,8 +48,6 @@ Ext.define('EDO.model.MenuItem', {
             }
         },
 
-        //After Albums fetched
-
         readCallback: function (request) {
 
             if (!request.operation.success) {
