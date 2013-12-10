@@ -53,5 +53,27 @@ namespace EDO.UI.WebUI.Utils
         {
             return _roles.GetAllRoles();
         }
+
+        public static bool IsRoleExists(string role)
+        {
+            return _roles.RoleExists(role);
+        }
+
+        public static void CreateRole(string role)
+        {
+            _roles.CreateRole(role);
+        }
+
+        public static void DeleteRole(string role)
+        {
+            if (!IsRoleExists(role)) return;
+
+            if(_roles.GetUsersInRole(role).Any())
+            {
+                throw new Exception("Невозможно удалить НЕПУСТУЮ роль");
+            }
+
+            _roles.DeleteRole(role, true);
+        }
     }
 }

@@ -4,6 +4,7 @@
         name: 'name',
         useNull: true
     }],
+
     validations: [{
         type: 'length',
         field: 'name',

@@ -12,6 +12,7 @@
         var store = Ext.create('EDO.store.RolesStore');        
 
         var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
+            pluginId: 'rowEditingId',
             listeners: {
                 cancelEdit: function (rowEditing, context) {
                     // Canceling editing of a locally added, unsaved record: remove it
@@ -20,11 +21,9 @@
                     }
                 }
             }
-        });
-        
-        this.store = store;
+        });        
 
-        this.columns = [{
+        var columns = [{
             text: 'Название роли',
             flex: 1,
             sortable: true,
@@ -34,7 +33,7 @@
             }
         }];
 
-        this.dockedItems = [{
+        var dockedItems = [{
             xtype: 'toolbar',
             items: [{
                 text: 'Add',
@@ -49,15 +48,31 @@
                 iconCls: 'icon-delete',
                 disabled: true,
                 handler: function () {
+                    var selection = grid.getView().getSelectionModel().getSelection()[0];
+                    if (selection) {
+                        store.remove(selection);
+                    }
                 }
             }]
-        }];       
+        }];
 
+        Ext.apply(this, {
+            store: store,
+            plugins: [rowEditing],
+            columns: columns,
+            dockedItems: dockedItems
+        });
 
         grid.getSelectionModel().on('selectionchange', function (selModel, selections) {
             grid.down('#deleteRole').setDisabled(selections.length === 0);
         });
 
         this.callParent(arguments);
+    },
+
+    listeners: {
+        afterrender: function () {
+            this.getPlugin('rowEditingId').removeManagedListener(this.getPlugin('rowEditingId').view, 'celldblclick');
+        }
     }
 });
