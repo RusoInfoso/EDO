@@ -75,5 +75,10 @@ namespace EDO.UI.WebUI.Utils
 
             _roles.DeleteRole(role, true);
         }
+
+        public static string[] GetUserNamesInRole(string role)
+        {
+            return _roles.GetUsersInRole(role);
+        }
     }
 }

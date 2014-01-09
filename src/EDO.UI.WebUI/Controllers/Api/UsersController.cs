@@ -26,12 +26,21 @@ namespace EDO.UI.WebUI.Controllers.Api
 
         // Получаем всех пользователей /api/users
         [ApiRoledAuthorize(Roles="Administrator")]
-        public string Get()
+        public UserProfile[] Get()
         {
-            return "";
+            return _uow.UserProfiles.GetAll().ToArray();
+        }
+
+        // Получаем всех пользователей по роли /api/users/guest
+        [ApiRoledAuthorize(Roles = "Administrator")]
+        public UserProfile[] Get(string role)
+        {
+            var names = MembershipUtils.GetUserNamesInRole(role);
+            return _uow.UserProfiles.GetAll().Where(up => names.Any(n => n == up.UserName )).ToArray();
         }
 
         // Получаем конкретного пользователя /api/users/123
+        [ApiRoledAuthorize(Roles = "Administrator")]
         public UserProfile Get(int id)
         {
             return _uow.UserProfiles.GetById(id);

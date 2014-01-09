@@ -11,6 +11,8 @@
         var grid = this;
         var store = Ext.create('EDO.store.RolesStore');
 
+        this.addEvents('roleselected');
+
         var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
             pluginId: 'rowEditingId',
             listeners: {
@@ -72,11 +74,16 @@
             store: store,
             plugins: [rowEditing],
             columns: columns,
-            dockedItems: dockedItems
+            dockedItems: dockedItems            
         });
 
         grid.getSelectionModel().on('selectionchange', function (selModel, selections) {
             grid.down('#deleteRole').setDisabled(selections.length === 0);
+
+            if (selections && selections.length > 0) {
+                var selected = selections[0];
+                grid.fireEvent('roleselected');
+            }
         });
 
         this.callParent(arguments);

@@ -201,8 +201,10 @@
     <Content Include="scripts\app\controller\User.js" />
     <Content Include="scripts\app\model\MenuItem.js" />
     <Content Include="scripts\app\model\Role.js" />
+    <Content Include="scripts\app\model\User.js" />
     <Content Include="scripts\app\store\MenuItems.js" />
     <Content Include="scripts\app\store\RolesStore.js" />
+    <Content Include="scripts\app\store\UsersStore.js" />
     <Content Include="scripts\app\view\admin\Index.js" />
     <Content Include="scripts\app\view\admin\RolesAndUsers.js" />
     <Content Include="scripts\app\view\admin\RolesGrid.js" />

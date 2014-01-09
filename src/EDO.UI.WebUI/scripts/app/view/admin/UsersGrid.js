@@ -5,11 +5,24 @@
     layout: 'fit',
     frame: false,
 
+    role: '',
+
     initComponent: function () {        
+        var component = this;
+        var store = Ext.create('EDO.store.UsersStore');
 
         this.getSelectionModel().on('selectionchange', function (selModel, selections) {
             grid.down('#deleteUser').setDisabled(selections.length === 0);
         });
+
+        this.addEvents('roleselected');
+
+        Ext.apply(this.listeners, {
+            roleselected: function () {
+                console.log('UsersGrid');
+            }
+        });
+
 
         this.callParent(arguments);
     },

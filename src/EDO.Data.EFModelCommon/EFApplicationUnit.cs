@@ -27,7 +27,7 @@ namespace EDO.Data.EFModelCommon
             {
                 if(_profiles == null)
                 {
-                    _profiles = new EFGenericRepository<UserProfile>(_context);
+                    _profiles = new EFUserProfilesRepository(_context);
                 }
 
                 return _profiles;

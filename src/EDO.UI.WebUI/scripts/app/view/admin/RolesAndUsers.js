@@ -2,12 +2,17 @@
     extend: 'Ext.panel.Panel',
     title: '',
     border: false,
-    layout: 'border',
+    layout: 'border',   
     
+
     requires: [
         'EDO.view.admin.RolesGrid',
         'EDO.view.admin.UsersGrid'
     ],
+
+    initComponent: function () {
+        this.callParent(arguments);
+    },
 
     items: [
         {

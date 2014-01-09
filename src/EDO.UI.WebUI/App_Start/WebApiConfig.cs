@@ -21,6 +21,12 @@ namespace EDO.UI.WebUI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: null,
+                routeTemplate: "api/{controller}/{role}",
+                defaults: null
+            );
         }
     }
 }
