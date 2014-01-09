@@ -1,15 +1,15 @@
 ﻿Ext.define('EDO.view.admin.RolesGrid', {
     extend: 'Ext.grid.Panel',
     alias: ['widget.admin-rolesGrid'],
-    
+
     layout: 'fit',
     frame: false,
 
     store: {},
-    
+
     initComponent: function () {
         var grid = this;
-        var store = Ext.create('EDO.store.RolesStore');        
+        var store = Ext.create('EDO.store.RolesStore');
 
         var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
             pluginId: 'rowEditingId',
@@ -21,7 +21,7 @@
                     }
                 }
             }
-        });        
+        });
 
         var columns = [{
             text: 'Название роли',
@@ -50,7 +50,19 @@
                 handler: function () {
                     var selection = grid.getView().getSelectionModel().getSelection()[0];
                     if (selection) {
-                        store.remove(selection);
+                        Ext.MessageBox.show({
+                            title: 'Удаление роли',
+                            msg: 'Вы действительно хотите удалить роль ' + selection.data.name + '?!',
+                            buttons: Ext.MessageBox.YESNO,
+                            icon: Ext.MessageBox.WARNING,    // иконка мб {ERROR,INFO,QUESTION,WARNING}
+                            width: 300,                       
+                            closable: false,
+                            fn: function (btn) {
+                                if (btn == 'yes') {
+                                    store.remove(selection);
+                                }
+                            }
+                        });
                     }
                 }
             }]
